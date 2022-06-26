@@ -20,7 +20,7 @@ $(NAME) : $(OFILES)
 $(OBJ_DIR) :
 	@mkdir OBJ
 
-$(OFILES) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp $(INC) | $(OBJ_DIR)
+$(OFILES) : $(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean :
