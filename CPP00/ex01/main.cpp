@@ -6,7 +6,7 @@
 /*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/28 18:40:44 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/06/28 22:26:09 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	main(void)
 				j++;
 			}
 		}
-		else if(!input.compare("EXIT"))
+		else if(!input.compare("EXIT") || input.empty() == true)
 			break ;
 		else
 			std::cout << "no such command found" << std::endl;
-		if (i >= 9)
+		if (i >= 8)
 			i = 0;
 	}
 }
