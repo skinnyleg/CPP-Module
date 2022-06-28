@@ -6,7 +6,7 @@
 /*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/27 00:15:16 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/06/28 18:40:44 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,25 @@ int	main(void)
 			std::cout << "Enter a darkest secret :";
 			std::getline(std::cin, new_contact.darkest_secret);
 			std::cout << "Enter a phone number :";
-			std::cin >> new_contact.phone_number;
+			std::getline(std::cin, new_contact.phone_number);
 			PhoneBook.add_contact(new_contact, i);
+			i++;
 		}
 		else if (!input.compare("SEARCH"))
 		{
-			std::cout << "nothing coded yet" << std::endl;
+			int j = 0;
+			while (j < i)
+			{
+				std::cout << j << " | " << PhoneBook.contacts[j].first_name << " | " << PhoneBook.contacts[j].last_name << " | " << PhoneBook.contacts[j].nickname << std::endl;
+				j++;
+			}
 		}
 		else if(!input.compare("EXIT"))
 			break ;
 		else
 			std::cout << "no such command found" << std::endl;
-		i++;
 		if (i >= 9)
 			i = 0;
-		// std::cout << "\n";
 	}
 }
 
