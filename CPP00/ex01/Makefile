@@ -4,6 +4,7 @@ CC = g++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 CFILES = main.cpp\
+		PhoneBook.cpp\
 
 OFILES = $(addprefix $(OBJ_DIR)/,$(CFILES:.cpp=.o))
 

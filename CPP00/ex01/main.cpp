@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/29 15:38:58 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/29 17:58:03 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,26 @@ int	main(void)
 		std::cout << "Enter a command : ";
 		std::cin >> input;
 		if (!input.compare("ADD"))
-			contact_info(PhoneBook, &i);
+		{
+			if (contact_info(&PhoneBook, &i) == 1)
+			{
+				std::cout << "\n";
+				return (1);
+			}
+		}
 		else if (!input.compare("SEARCH"))
 		{
-			print_contact(PhoneBook, i);
-		}
-		else if(!input.compare("EXIT") || input.empty() == true)
-		{
-			if (input.empty() == true)
+			if (print_contact(PhoneBook, i) == 1)
+			{
 				std::cout << "\n";
-			break ;
+				return (1);
+			}
+		}
+		else if(!input.compare("EXIT") || std::cin.eof() == 1)
+		{
+			if (std::cin.eof() == 1)
+				std::cout << "\n";
+			return (1);
 		}
 		else
 			std::cout << "no such command found" << std::endl;
