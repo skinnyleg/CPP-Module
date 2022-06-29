@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:27:04 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/06/29 18:03:26 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/29 18:49:14 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	contact_info(PhoneBook *PhoneBook, int *i)
 	return (0);
 }
 
-void	print_space(std::string str)
+void	print_space_str(std::string str)
 {
 	int length;
 	int k;
@@ -62,6 +62,16 @@ void	print_space(std::string str)
 	std::cout << str;
 }
 
+void	print_space(void)
+{
+	int k = 0;
+	while (k < 9)
+	{
+		std::cout << " ";
+		k++;
+	}
+}
+
 void	print_all(PhoneBook PhoneBook, int i)
 {
 	int j = 0;
@@ -76,18 +86,14 @@ void	print_all(PhoneBook PhoneBook, int i)
 	{
 		k = 0;
 		std::cout << "|";
-		while (k < 9)
-		{
-			std::cout << " ";
-			k++;
-		}
-		std::cout << j;
+		print_space();
+		std::cout << j + 1;
 		std:: cout << "|";
-		print_space( PhoneBook.contacts[j].first_name);
+		print_space_str( PhoneBook.contacts[j].first_name);
 		std:: cout << "|";
-		print_space( PhoneBook.contacts[j].last_name);
+		print_space_str( PhoneBook.contacts[j].last_name);
 		std:: cout << "|";
-		print_space( PhoneBook.contacts[j].nickname);
+		print_space_str( PhoneBook.contacts[j].nickname);
 		std:: cout << "|" << std::endl;
 		j++;
 	}
