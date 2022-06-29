@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/28 22:26:09 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/06/29 15:38:58 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+Contact::Contact(void){};
+
+Contact::~Contact(void) {};
+
+PhoneBook::PhoneBook(void){};
+
+PhoneBook::~PhoneBook(void){};
 
 int	main(void)
 {
@@ -22,38 +30,22 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "Enter a command : ";
-		std::getline(std::cin, input);
+		std::cin >> input;
 		if (!input.compare("ADD"))
-		{
-			Contact new_contact;
-			std::cout << "Enter a first name :";
-			std::getline(std::cin, new_contact.first_name);
-			std::cout << "Enter a last name :";
-			std::getline(std::cin, new_contact.last_name);
-			std::cout << "Enter a nickname :";
-			std::getline(std::cin, new_contact.nickname);
-			std::cout << "Enter a darkest secret :";
-			std::getline(std::cin, new_contact.darkest_secret);
-			std::cout << "Enter a phone number :";
-			std::getline(std::cin, new_contact.phone_number);
-			PhoneBook.add_contact(new_contact, i);
-			i++;
-		}
+			contact_info(PhoneBook, &i);
 		else if (!input.compare("SEARCH"))
 		{
-			int j = 0;
-			while (j < i)
-			{
-				std::cout << j << " | " << PhoneBook.contacts[j].first_name << " | " << PhoneBook.contacts[j].last_name << " | " << PhoneBook.contacts[j].nickname << std::endl;
-				j++;
-			}
+			print_contact(PhoneBook, i);
 		}
 		else if(!input.compare("EXIT") || input.empty() == true)
+		{
+			if (input.empty() == true)
+				std::cout << "\n";
 			break ;
+		}
 		else
 			std::cout << "no such command found" << std::endl;
-		if (i >= 8)
-			i = 0;
 	}
+	return (0);
 }
 
