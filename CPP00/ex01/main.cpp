@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/30 18:15:43 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/30 22:08:22 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(void)
 	while (1)
 	{
 		std::cout << "Enter a command : ";
-		// std::cin >> input;
 		std::getline(std::cin, input);
 		if (std::cin.eof() == 1)
 		{
