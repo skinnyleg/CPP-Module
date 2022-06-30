@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:35:44 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/29 17:27:53 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/30 12:34:11 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,31 +28,36 @@ public:
 		int lowest;
 
 		i = 0;
-		lowest = contacts[i].index;
+		lowest = contacts[i].old;
 		while (i < 8)
 		{
-			if (lowest > contacts[i].index)
-				lowest = contacts[i].index;
+			if (lowest > contacts[i].old)
+				lowest = contacts[i].old;
 			i++;
 		}
-		return (lowest);
+		i = 0;
+		while (i < 8)
+		{
+			if (lowest == contacts[i].old)
+				break ;
+			i++;
+		}
+		return (contacts[i].index);
 	}
 	void	add_contact(Contact new_contact, int i)
 	{
 		int j;
-		if (i >= 8)
-			j = oldest();
-		else
-			j = i;
+		j = oldest();
 		contacts[j].first_name = new_contact.first_name;
 		contacts[j].last_name = new_contact.last_name;
 		contacts[j].nickname = new_contact.nickname;
 		contacts[j].darkest_secret = new_contact.darkest_secret;
 		contacts[j].phone_number = new_contact.phone_number;
-		contacts[j].index = i;
+		contacts[j].old = i;
 	}
 };
 
 int	contact_info(PhoneBook *PhoneBook, int *i);
 int	print_contact(PhoneBook PhoneBook, int i);
+void	indexing_contact(PhoneBook *PhoneBook);
 #endif

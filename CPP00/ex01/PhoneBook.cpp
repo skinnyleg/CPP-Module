@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:27:04 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/06/29 18:49:14 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/30 12:30:04 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,17 @@ int	print_contact(PhoneBook PhoneBook, int i)
 		std::cout << PhoneBook.contacts[limit - 1].phone_number << std::endl;
 	}
 	return (0);
+}
+
+void	indexing_contact(PhoneBook *PhoneBook)
+{
+	int i;
+
+	i = 0;
+	while (i < 8)
+	{
+		PhoneBook->contacts[i].index = i;
+		PhoneBook->contacts[i].old = -1;
+		i++;
+	}
 }

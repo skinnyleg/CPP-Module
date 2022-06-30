@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:25:15 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/29 15:09:50 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/30 12:20:41 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 	std::string darkest_secret;
 	std::string phone_number;
 	int	index;
+	int	old;
 	Contact();
 	~Contact();
 };

@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/29 18:26:11 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/06/30 12:28:08 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(void)
 	int	i;
 
 	i = 0;
+	indexing_contact(&PhoneBook);
 	while (1)
 	{
 		std::cout << "Enter a command : ";
