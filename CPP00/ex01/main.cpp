@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 23:34:33 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/06/30 22:08:22 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/07/01 18:07:37 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 	int	i;
 
 	i = 0;
-	indexing_contact(&PhoneBook);
+	indexing_contact(PhoneBook);
 	while (1)
 	{
 		std::cout << "Enter a command : ";

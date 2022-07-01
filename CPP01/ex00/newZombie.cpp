@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/26 23:35:44 by skinnyleg         #+#    #+#             */
-/*   Updated: 2022/07/01 18:06:12 by hmoubal          ###   ########.fr       */
+/*   Created: 2022/07/01 16:37:51 by hmoubal           #+#    #+#             */
+/*   Updated: 2022/07/01 16:46:29 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-#include "Contact.hpp"
-#include <iostream>
-
-class PhoneBook
+Zombie* newZombie(std::string name)
 {
-public:
-	Contact contacts[8];
-	PhoneBook(void);
-	~PhoneBook(void);
-	int		oldest(void);
-	void	add_contact(Contact new_contact, int i);
-};
+	Zombie* specimen;
 
-int	contact_info(PhoneBook *PhoneBook, int *i);
-int	print_contact(PhoneBook PhoneBook, int i);
-void	indexing_contact(PhoneBook& PhoneBook);
-#endif
+	specimen = new Zombie;
+	specimen->set_name(name);
+	return (specimen);
+}

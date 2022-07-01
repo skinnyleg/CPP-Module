@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:27:04 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/01 14:33:05 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/01 18:05:58 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,15 +209,15 @@ int	print_contact(PhoneBook PhoneBook, int i)
 	return (0);
 }
 
-void	indexing_contact(PhoneBook *PhoneBook)
+void	indexing_contact(PhoneBook& PhoneBook)
 {
 	int i;
 
 	i = 0;
 	while (i < 8)
 	{
-		PhoneBook->contacts[i].index = i;
-		PhoneBook->contacts[i].old = -1;
+		PhoneBook.contacts[i].index = i;
+		PhoneBook.contacts[i].old = -1;
 		i++;
 	}
 }
