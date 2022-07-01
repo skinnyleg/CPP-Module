@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:27:04 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/06/30 22:48:44 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/07/01 14:33:05 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,27 +54,62 @@ int	contact_info(PhoneBook *PhoneBook, int *i)
 	std::cout << "Enter a first name :";
 	std::getline(std::cin, input);
 	if (input.empty() == true)
+	{
+		if (std::cin.good() == true)
+		{
+			std::cout << "Invalid Input" << std::endl;
+			return (0);
+		}
 		return (1);
+	}
 	new_contact.set_first(input);
 	std::cout << "Enter a last name :";
 	std::getline(std::cin, input);
 	if (input.empty() == true)
+	{
+		if (std::cin.good() == true)
+		{
+			std::cout << "Invalid Input" << std::endl;
+			return (0);
+		}
 		return (1);
+	}
 	new_contact.set_last(input);
 	std::cout << "Enter a nickname :";
 	std::getline(std::cin, input);
 	if (input.empty() == true)
+	{
+		if (std::cin.good() == true)
+		{
+			std::cout << "Invalid Input" << std::endl;
+			return (0);
+		}
 		return (1);
+	}
 	new_contact.set_nick(input);
 	std::cout << "Enter a darkest secret :";
 	std::getline(std::cin, input);
 	if (input.empty() == true)
+	{
+		if (std::cin.good() == true)
+		{
+			std::cout << "Invalid Input" << std::endl;
+			return (0);
+		}
 		return (1);
+	}
 	new_contact.set_secret(input);
 	std::cout << "Enter a phone number :";
 	std::getline(std::cin, input);
 	if (input.empty() == true)
+	{
+		if (std::cin.good() == true)
+		{
+			std::cout << "Invalid Input" << std::endl;
+			return (0);
+		}
 		return (1);
+	}
 	new_contact.set_number(input);
 	PhoneBook->add_contact(new_contact, *i);
 	(*i)++;
@@ -145,16 +180,18 @@ int	print_contact(PhoneBook PhoneBook, int i)
 	print_all(PhoneBook, i);
 	std::cout << "enter the index of the contact :";
 	std::getline(std::cin, input);
-	if(input.empty())
-		return (1);
 	try
 	{
-		limit = stoi(input);
+		limit = std::stoi(input);
 	}
-	catch(std::exception &err)
+	catch(std::exception)
 	{
-		std::cout << "Invalid Input" << std::endl;
-		return (0);
+		if (std::cin.good() == true)
+		{
+			std::cout << "Invalid Input" << std::endl;
+			return (0);
+		}
+		return (1);
 	}
 	if ((limit >= 1 && limit <= 8) && i >= limit)
 	{
