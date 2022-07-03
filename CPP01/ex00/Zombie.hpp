@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:23:47 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/01 16:46:25 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/03 13:01:50 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Zombie
 	void set_name(std::string str);
 	void	announce(void);
 	Zombie();
+	Zombie(std::string name);
 	~Zombie();
 };
 

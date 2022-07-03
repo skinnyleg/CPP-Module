@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:37:51 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/01 16:46:29 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/03 13:08:56 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Zombie* newZombie(std::string name)
 {
 	Zombie* specimen;
 
-	specimen = new Zombie;
-	specimen->set_name(name);
+	specimen = new Zombie(name);
 	return (specimen);
 }
