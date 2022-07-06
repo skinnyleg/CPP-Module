@@ -6,14 +6,14 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:21:05 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/05 18:38:45 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/06 13:33:01 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 
-int	fill_file(std::ofstream &RepFile, std::ifstream &OriginFile, char **av)
+void	fill_file(std::ofstream &RepFile, std::ifstream &OriginFile, char **av)
 {
 	std::string line;
 	std::string send;
@@ -34,7 +34,6 @@ int	fill_file(std::ofstream &RepFile, std::ifstream &OriginFile, char **av)
 			RepFile << line;
 		RepFile << "\n";
 	}
-	return (0);
 }
 
 int main(int ac, char **av)
@@ -68,12 +67,7 @@ int main(int ac, char **av)
 		std::cout << "couldn't create" << std::endl;
 		return (1);
 	}
-	if (fill_file(RepFile, OriginFile, av) == 1)
-	{
-		OriginFile.close();
-		RepFile.close();
-		return (1);
-	}
+	fill_file(RepFile, OriginFile, av);
 	OriginFile.close();
 	RepFile.close();
 }
