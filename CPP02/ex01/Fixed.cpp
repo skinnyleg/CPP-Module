@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/07 21:28:22 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/07 21:49:11 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int		Fixed::toInt(void) const
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
-	float f = (obj.getRawBits() / (1 << obj.Fixed_bit));
+	double f = (obj.getRawBits() / (1 << obj.Fixed_bit));
 	os << f;
 	return (os);
 }
