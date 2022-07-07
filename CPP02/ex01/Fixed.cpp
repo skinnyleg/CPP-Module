@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/07 21:49:11 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/07 21:57:10 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ Fixed::Fixed(const float num)
 float	Fixed::toFloat(void) const
 {
 	float f;
-	f = (Fixed_pointvalue / (1 << Fixed_bit));
+	f = ((float)Fixed_pointvalue / (float)(1 << Fixed_bit));
 	return (f);
 }
 
@@ -74,7 +74,6 @@ int		Fixed::toInt(void) const
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 {
-	double f = (obj.getRawBits() / (1 << obj.Fixed_bit));
-	os << f;
+	os << obj.toFloat();
 	return (os);
 }
