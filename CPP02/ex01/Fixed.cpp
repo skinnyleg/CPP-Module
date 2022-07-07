@@ -6,13 +6,11 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/07 18:37:00 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/07 21:28:22 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::Fixed_bit = 8;
 
 Fixed::Fixed(void)
 {
@@ -36,7 +34,7 @@ Fixed::~Fixed()
 
 int		Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (Fixed_pointvalue);
 }
 
@@ -54,22 +52,29 @@ Fixed& Fixed::operator=(Fixed const &obj)
 
 Fixed::Fixed(const int num)
 {
-	Fixed_pointvalue = num;
+	Fixed_pointvalue = (num * (1 << Fixed_bit));
 }
 
 Fixed::Fixed(const float num)
 {
-	Fixed_pointvalue = num;
+	Fixed_pointvalue = roundf(num * (1 << Fixed_bit));
 }
 
-// float	Fixed::toFloat(void)
-// {
+float	Fixed::toFloat(void) const
+{
+	float f;
+	f = (Fixed_pointvalue / (1 << Fixed_bit));
+	return (f);
+}
 
-// }
+int		Fixed::toInt(void) const
+{
+	return ((Fixed_pointvalue / (1 << Fixed_bit)));
+}
 
-// int		Fixed::toInt(void)
-// {
-// 	Fixed_pointvalue = roundf()
-// }
-
-// float Fixed::operator<<(Fixed const &obj){};
+std::ostream& operator<<(std::ostream& os, const Fixed& obj)
+{
+	float f = (obj.getRawBits() / (1 << obj.Fixed_bit));
+	os << f;
+	return (os);
+}
