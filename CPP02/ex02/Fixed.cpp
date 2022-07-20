@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/08 19:06:54 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/20 17:56:30 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,56 +152,22 @@ Fixed&	Fixed::operator/(Fixed const &obj)
 	return (*this);
 }
 
-// static int& min(int& fixed_point1, int& fixed_point2)
-// {
-// 	int c;
-// 	if (fixed_point1 < fixed_point2)
-// 		c = fixed_point1;
-// 	else
-// 		c = fixed_point2;
-// 	static int& ret = c;
-// 	return (ret);
-// }
-
-// static int& min(int const & fixed_point1, int const & fixed_point2)
-// {
-// 	int c;
-// 	if (fixed_point1 < fixed_point2)
-// 		c = fixed_point1;
-// 	else
-// 		c = fixed_point2;
-// 	static int& ret = c;
-// 	return (ret);
-// }
-
-int& max(int& fixed_point1, int& fixed_point2)
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-	int c;
-	if (fixed_point1 > fixed_point2)
-		c = fixed_point1;
+	if ((Fixed)a > (Fixed)b)
+		return a;
 	else
-		c = fixed_point2;
-	static int& ret = c;
-	return (ret);
+		return b;
 }
 
-// static int& max(int const & fixed_point1, int const & fixed_point2)
-// {
-// 	int c;
-// 	if (fixed_point1 > fixed_point2)
-// 		c = fixed_point1;
-// 	else
-// 		c = fixed_point2;
-// 	static int& ret = c;
-// 	return (ret);
-// }
-
-static Fixed& max(Fixed& obj1, Fixed obj2)
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
-	static Fixed b;
-	b.max(obj1.getRawBits(), obj2.getRawBits());
-	return(b);
+	if ((Fixed)a < (Fixed)b)
+		return a;
+	else
+		return b;
 }
+
 
 Fixed&	Fixed::operator++(void)
 {
