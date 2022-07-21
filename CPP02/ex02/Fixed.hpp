@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:53:06 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/20 17:56:11 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/21 16:36:45 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ class Fixed
 	int		toInt(void) const;
 	static const Fixed &max(const Fixed &a, const Fixed &b);
 	static const Fixed &min(const Fixed &a, const Fixed &b);
+	static Fixed &max(Fixed &a, Fixed &b);
+	static Fixed &min(Fixed &a, Fixed &b);
 };
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj);
