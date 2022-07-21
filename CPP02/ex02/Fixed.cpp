@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/21 16:38:47 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/21 19:08:07 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::Fixed(const Fixed& a)
 Fixed::~Fixed(){};
 
 
-int		Fixed::getRawBits(void) const
+int		Fixed::getRawBits(void)
 {
 	return (Fixed_pointvalue);
 }

@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:53:06 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/21 16:36:45 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/21 19:07:51 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Fixed
 	Fixed&	operator++(int i);
 	Fixed&	operator--(void);
 	Fixed&	operator--(int i);
-	int		getRawBits(void) const;
+	int		getRawBits(void);
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
 	int		toInt(void) const;
