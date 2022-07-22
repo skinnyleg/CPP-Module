@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/21 18:53:39 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/22 19:03:31 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(const Fixed& a)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	Fixed_pointvalue = a.Fixed_pointvalue;
+	*this = a;
 }
 
 
@@ -52,18 +52,18 @@ Fixed& Fixed::operator=(Fixed const &obj)
 
 Fixed::Fixed(const int num)
 {
-	Fixed_pointvalue = num;
-	Fixed_pointvalue = this->toInt();
+	std::cout << "Int constructor called" << std::endl;
+	Fixed_pointvalue = (num * (1 << Fixed_bit));
 }
 
 Fixed::Fixed(const float num)
 {
+	std::cout << "Float constructor called" << std::endl;
 	Fixed_pointvalue = roundf(num * (1 << Fixed_bit));
 }
 
 float	Fixed::toFloat(void) const
 {
-	std::cout << "Float constructor called" << std::endl;
 	float f;
 	f = ((float)Fixed_pointvalue / (float)(1 << Fixed_bit));
 	return (f);
@@ -71,7 +71,6 @@ float	Fixed::toFloat(void) const
 
 int		Fixed::toInt(void) const
 {
-	std::cout << "Int constructor called" << std::endl;
 	return ((Fixed_pointvalue / (1 << Fixed_bit)));
 }
 

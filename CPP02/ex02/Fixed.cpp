@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:57:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/21 19:08:07 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/22 20:42:51 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(const Fixed& a)
 {
-	Fixed_pointvalue = a.Fixed_pointvalue;
+	*this = a;
 }
 
 
 Fixed::~Fixed(){};
 
 
-int		Fixed::getRawBits(void)
+int		Fixed::getRawBits(void) const
 {
 	return (Fixed_pointvalue);
 }
@@ -113,36 +113,30 @@ bool	Fixed::operator!=(Fixed const &obj)
 	return (false);
 }
 
-Fixed&	Fixed::operator+(Fixed const &obj)
+Fixed	Fixed::operator+(Fixed const &obj) const
 {
-	float f = this->toFloat() + obj.toFloat();
-	Fixed a(f);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
-	return (*this);
+	Fixed a;
+	a.Fixed_pointvalue = this->Fixed_pointvalue + obj.Fixed_pointvalue;
+	return (a);
 }
 
-Fixed&	Fixed::operator-(Fixed const &obj)
+Fixed	Fixed::operator-(Fixed const &obj) const
 {
-	float f = this->toFloat() - obj.toFloat();
-	Fixed a(f);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
-	return (*this);
+	Fixed a;
+	a.Fixed_pointvalue = this->Fixed_pointvalue - obj.Fixed_pointvalue;
+	return (a);
 }
 
-Fixed&	Fixed::operator*(Fixed const &obj)
+Fixed	Fixed::operator*(Fixed const &obj) const
 {
-	float f = this->toFloat() * obj.toFloat();
-	Fixed a(f);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
-	return (*this);
+	Fixed a(this->toFloat() * obj.toFloat());
+	return (a);
 }
 
-Fixed&	Fixed::operator/(Fixed const &obj)
+Fixed	Fixed::operator/(Fixed const &obj) const
 {
-	float f = this->toFloat() / obj.toFloat();
-	Fixed a(f);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
-	return (*this);
+	Fixed a(this->toFloat() / obj.toFloat());
+	return (a);
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
@@ -178,39 +172,31 @@ Fixed &Fixed::min(Fixed &a, Fixed &b)
 }
 
 
-Fixed&	Fixed::operator++(void)
+Fixed	Fixed::operator++(void)
 {
-	float f = (this->toFloat() + 0.00390625);
-	Fixed a(f);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
+	this->Fixed_pointvalue++;
 	return (*this);
 }
 
-Fixed&	Fixed::operator++(int i)
+Fixed	Fixed::operator++(int i)
 {
 	(void)i;
-	float f = (this->toFloat() + 0.00390625);
-	Fixed a(f);
-	static Fixed b(*this);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
-	return (b);
+	Fixed a(*this);
+	this->Fixed_pointvalue++;
+	return (a);
 }
 
-Fixed&	Fixed::operator--(void)
+Fixed	Fixed::operator--(void)
 {
-	float f = (this->toFloat() - 0.00390625);
-	Fixed a(f);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
+	this->Fixed_pointvalue--;
 	return (*this);
 }
 
-Fixed&	Fixed::operator--(int i)
+Fixed	Fixed::operator--(int i)
 {
 	(void)i;
-	float f = (this->toFloat() - 0.00390625);
-	Fixed a(f);
-	static Fixed b(*this);
-	this->Fixed_pointvalue = a.Fixed_pointvalue;
-	return (b);
+	Fixed a(*this);
+	this->Fixed_pointvalue--;
+	return (a);
 }
 
