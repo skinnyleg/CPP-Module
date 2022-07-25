@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 18:21:41 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/25 11:52:28 by hmoubal          ###   ########.fr       */
+/*   Created: 2022/07/24 15:48:37 by hmoubal           #+#    #+#             */
+/*   Updated: 2022/07/25 14:07:26 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-Zombie* zombieHorde(int N, std::string name)
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Dog : public Animal
 {
-	Zombie *Zombies;
+	private:
+		Brain *attribute;
+	public:
+		Dog();
+		Dog(Dog& obj);
+		~Dog();
+		Dog& operator=(const Dog& obj);
+		void	makeSound(void) const;
+		Brain*	getAttribute(void) const;
+		void	setBrainIdea(std::string str);
+		std::string	getBrainIdea(int a) const;
+};
 
-	Zombies = new(std::nothrow) Zombie[N];
-	if (Zombies == NULL)
-	{
-		std::cout << "malloc error" << std::endl;
-		exit(1);
-	}
-	int i = 0;
+#endif
 
-	while (i < N)
-	{
-		Zombies[i].set_name(name);
-		i++;
-	}
-	return (Zombies);
-}

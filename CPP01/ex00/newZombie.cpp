@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:37:51 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/03 13:08:56 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/25 11:54:43 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ Zombie* newZombie(std::string name)
 {
 	Zombie* specimen;
 
-	specimen = new Zombie(name);
+	specimen = new(std::nothrow) Zombie(name);
+	if (specimen == NULL)
+	{
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
 	return (specimen);
 }

@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:37:26 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/24 19:15:17 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/25 11:00:35 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,7 @@ void	Animal::setType(std::string str)
 	this->type = str;
 }
 
-void	Animal::makeSound(void) const{};
+void	Animal::makeSound(void) const
+{
+	std::cout << "No Unique Sound For Animal" << std::endl;
+}

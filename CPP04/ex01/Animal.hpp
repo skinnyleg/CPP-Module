@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/01 18:21:41 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/25 11:52:28 by hmoubal          ###   ########.fr       */
+/*   Created: 2022/07/24 15:31:04 by hmoubal           #+#    #+#             */
+/*   Updated: 2022/07/24 19:05:59 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+#include <iostream>
 
-Zombie* zombieHorde(int N, std::string name)
+class Animal
 {
-	Zombie *Zombies;
+	protected:
+		std::string type;
+	public:
+		Animal();
+		Animal(Animal& obj);
+		virtual ~Animal();
+		Animal& operator=(const Animal& obj);
+		virtual void	makeSound(void) const;
+		std::string getType(void) const;
+		void	setType(std::string str);
+};
 
-	Zombies = new(std::nothrow) Zombie[N];
-	if (Zombies == NULL)
-	{
-		std::cout << "malloc error" << std::endl;
-		exit(1);
-	}
-	int i = 0;
-
-	while (i < N)
-	{
-		Zombies[i].set_name(name);
-		i++;
-	}
-	return (Zombies);
-}
+#endif
