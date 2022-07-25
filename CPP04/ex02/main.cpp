@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:29:57 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/25 16:30:22 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/25 18:27:44 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,19 @@
 
 int main(void)
 {
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
-
+	const Animal* dog = new(std::nothrow) Dog();
+	if (dog == NULL)
+	{
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
+	const Animal* cat = new(std::nothrow) Cat();
+	if (cat == NULL)
+	{
+		delete dog;
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
 	((Dog*)dog)->setBrainIdea("food!!!love!!!");
 	((Dog*)dog)->setBrainIdea("play!!!fun!!!");
 	((Dog*)dog)->setBrainIdea("love me!!!");
@@ -34,12 +44,40 @@ int main(void)
 	std::cout << "\n ============= Copy [Dog] ! ============= \n\n";
 
 	for (i = 0; i < ((int)amount / 2); i++)
-		animals[i] = new Dog(*(Dog*)dog);
+	{
+		animals[i] = new(std::nothrow) Dog(*(Dog*)dog);
+		if (animals[i] == NULL)
+		{
+			while (i > 0)
+			{
+				i--;
+				delete animals[i];
+			}
+			delete dog;
+			delete cat;
+			std::cout << "malloc error" << std::endl;
+			exit(1);
+		}
+	}
 
 	std::cout << "\n =============  Copy [Cat] ! ============= \n\n";
 
 	for (; i < (int)amount; i++)
-		animals[i] = new Cat(*(Cat*)cat);
+	{
+		animals[i] = new(std::nothrow) Cat(*(Cat*)cat);
+		if (animals[i] == NULL)
+		{
+			while (i > 0)
+			{
+				i--;
+				delete animals[i];
+			}
+			delete dog;
+			delete cat;
+			std::cout << "malloc error" << std::endl;
+			exit(1);
+		}
+	}
 
 	std::cout << "\n ================= delete ================= \n\n";
 	delete dog;

@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:44:02 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/25 14:15:21 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/25 18:21:33 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,24 @@
 Cat::Cat()
 {
 	std::cout << "Cat Default Constructor called" << std::endl;
-	this->attribute = new Brain();
+	this->attribute = new(std::nothrow) Brain();
+	if (attribute == NULL)
+	{
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
 	this->type = "Cat";
 }
 
 Cat::Cat(Cat& obj) : Animal(obj)
 {
 	std::cout << "Cat Copy Constructor called" << std::endl;
-	this->attribute = new Brain();
+	this->attribute = new(std::nothrow) Brain();
+	if (attribute == NULL)
+	{
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
 	*this = obj;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 15:49:54 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/25 15:16:19 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/25 18:27:16 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,24 @@
 Dog::Dog()
 {
 	std::cout << "Dog Default Constructor called" << std::endl;
-	this->attribute = new Brain();
+	this->attribute = new(std::nothrow) Brain();
+	if (attribute == NULL)
+	{
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
 	this->type = "Dog";
 }
 
 Dog::Dog(Dog& obj) : Animal(obj)
 {
 	std::cout << "Dog Copy Constructor called" << std::endl;
-	this->attribute = new Brain();
+	this->attribute = new(std::nothrow) Brain();
+	if (attribute == NULL)
+	{
+		std::cout << "malloc error" << std::endl;
+		exit(1);
+	}
 	*this = obj;
 }
 
