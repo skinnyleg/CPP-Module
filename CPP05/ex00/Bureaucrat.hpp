@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:28:30 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/26 18:24:09 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/26 20:03:06 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public :
-			const char * what() const throw ()
+			const char * what() const throw()
 			{
 				return ("GradeTooHigh");
 			}
@@ -41,7 +41,7 @@ class Bureaucrat
 		class GradeTooLowException : public std::exception
 		{
 			public:
-			const char * what() const throw ()
+			const char * what() const throw()
 			{
 				return ("GradeTooLow");
 			}
