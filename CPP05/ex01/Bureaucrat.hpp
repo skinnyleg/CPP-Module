@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:28:30 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/26 18:24:09 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/26 23:01:26 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat
 {
 	private:
@@ -27,6 +32,7 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		int	getGrade(void) const;
 		std::string	getName(void) const;
+		void	signForm(Form& form) const;
 		void	Promotion();
 		void	Demotion();
 

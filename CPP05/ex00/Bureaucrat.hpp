@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:28:30 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/26 20:03:06 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/26 22:52:40 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <exception>
 class Bureaucrat
 {
 	private:

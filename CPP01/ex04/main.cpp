@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:21:05 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/06 13:33:01 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/26 21:42:49 by skinnyleg        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ void	fill_file(std::ofstream &RepFile, std::ifstream &OriginFile, char **av)
 	while (std::getline(OriginFile, line))
 	{
 		int found = 0;
-		while (line.find(av[2], 0) != std::string::npos)
+		if (rep.empty() != true)
 		{
-			found = line.find(av[2], 0);
-			send.assign(line, 0, found);
-			send.append(rep);
-			RepFile << send;
-			found += rep.length();
-			line.erase(0, found);
+			while (line.find(av[2], 0) != std::string::npos)
+			{
+				found = line.find(av[2], 0);
+				send.assign(line, 0, found);
+				send.append(rep);
+				RepFile << send;
+				found += rep.length();
+				line.erase(0, found);
+			}
 		}
 		if (line.empty() != true)
 			RepFile << line;
