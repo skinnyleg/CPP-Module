@@ -9,6 +9,7 @@ CFILES = main.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
 		PresidentialPardonForm.cpp\
+		Intern.cpp\
 
 OFILES = $(addprefix $(OBJ_DIR)/,$(CFILES:.cpp=.o))
 
@@ -18,11 +19,11 @@ SRC_DIR = .
 
 INC = *.hpp
 
-NAME = BureaucratFormMania
+NAME = Interns
 
 $(NAME) : $(OBJ_DIR) $(OFILES)
 	@$(CC) $(OFILES) -o $(NAME)
-	@echo "done for BureaucratFormMania"
+	@echo "done for Interns"
 
 $(OBJ_DIR):
 	@mkdir OBJ

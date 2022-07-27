@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:28:27 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/26 22:45:28 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/07/27 18:35:47 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	Bureaucrat::signForm(Form& form) const
 	{
 		std::cout << this->getName();
 		std::cout << " couldn't sign " << form.getName();
-		std::cout << " because Grade too low" << std::endl;
+		std::cout << " because ";
 	}
 }
 

@@ -6,19 +6,19 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:30:44 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/27 18:41:26 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/27 17:21:33 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() : Form("PresidentialPardonForm", 25, 5)
 {
 	std::cout << "PresidentialPardonForm Default Constructor called" << std::endl;
 	target = "default";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string str) : Form("Presidential", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string str) : Form("PresidentialPardonForm", 25, 5)
 {
 	std::cout << "PresidentialPardonForm Name Constructor called" << std::endl;
 	target = str;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skinnyleg <skinnyleg@student.42.fr>        +#+  +:+       +#+        */
+/*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 18:28:30 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/26 23:01:26 by skinnyleg        ###   ########.fr       */
+/*   Updated: 2022/07/27 18:36:14 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Bureaucrat
 			public :
 			const char * what() const throw ()
 			{
-				return ("GradeTooHigh");
+				return ("Grade Too High");
 			}
 		};
 		class GradeTooLowException : public std::exception
@@ -49,7 +49,7 @@ class Bureaucrat
 			public:
 			const char * what() const throw ()
 			{
-				return ("GradeTooLow");
+				return ("Grade Too Low");
 			}
 		};
 };

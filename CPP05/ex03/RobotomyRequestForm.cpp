@@ -6,19 +6,19 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 14:39:59 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/27 18:41:11 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/27 17:21:42 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45)
 {
 	std::cout << "RobotomyRequestForm Default Constructor called" << std::endl;
 	target = "default";
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string str) : Form("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(std::string str) : Form("RobotomyRequestForm", 72, 45)
 {
 	std::cout << "RobotomyRequestForm Name Constructor called" << std::endl;
 	target = str;
