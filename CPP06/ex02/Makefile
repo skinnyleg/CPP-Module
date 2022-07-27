@@ -4,7 +4,7 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 CFILES = main.cpp\
-		Conversion.cpp\
+		Serialization.cpp\
 
 
 OFILES = $(addprefix $(OBJ_DIR)/,$(CFILES:.cpp=.o))
@@ -15,11 +15,11 @@ SRC_DIR = .
 
 INC = *.hpp
 
-NAME = Conversion
+NAME = WhoAmI
 
 $(NAME) : $(OBJ_DIR) $(OFILES)
 	@$(CC) $(OFILES) -o $(NAME)
-	@echo "done for Conversion"
+	@echo "done for WhoAmI"
 
 $(OBJ_DIR):
 	@mkdir OBJ
