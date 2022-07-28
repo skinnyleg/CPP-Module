@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 23:21:12 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/28 00:14:26 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/28 10:32:48 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ Conversion::~Conversion()
 
 void	Conversion::Convert(void) const
 {
+	std::cout << std::fixed;
+	std::cout.precision(1);
 	this->convert_toChar(this->input);
 	this->convert_toInt(this->input);
 	this->convert_toFloat(this->input);
@@ -83,8 +85,6 @@ void	Conversion::convert_toFloat(std::string input) const
 	try
 	{
 		float num = std::stof(input);
-		std::cout << std::fixed;
-		std::cout.precision(1);
 		std::cout << "Float: " << static_cast<float>(num) << "f" << std::endl;
 	}
 	catch(...)

@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 22:58:28 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/28 10:11:54 by hmoubal          ###   ########.fr       */
+/*   Created: 2022/07/28 13:07:27 by hmoubal           #+#    #+#             */
+/*   Updated: 2022/07/28 13:14:46 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#ifndef A_HPP
+#define A_HPP
 
-int main(int ac, char **av)
-{
-	if (ac != 2)
-	{
-		std::cout << "Wrong Numbers Of Arguments" << std::endl;
-		return (0);
-	}
-	Conversion obj(av[1]);
-	obj.Convert();
-}
+#include "Base.hpp"
+
+class A : public Base
+{};
+
+#endif
