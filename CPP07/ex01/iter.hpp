@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:06:30 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/28 16:03:53 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:31:47 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,28 @@
 
 #include <iostream>
 
+class Awesome
+{
+	private:
+		int _n;
+	public:
+		Awesome(void) : _n(42) {return ;}
+		int get(void) const {return (this->_n);}
+		~Awesome(){};
+};
+
+std::ostream& operator<<(std::ostream& o, Awesome const & rhs) {o << rhs.get(); return (o);}
 template <typename T>
-void iter(T *array, int len, void (*fun)(T&))
+void print(T const& x) {std::cout << x << std::endl; return ;}
+
+
+
+template <typename T>
+void iter(T *array, int len, void (*fun_ptr)(T))
 {
 	for (int i = 0; i < len; i++)
-		(*fun)(array[i]);
+	{
+		fun_ptr (array[i]);
+	}
 }
 #endif
