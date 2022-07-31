@@ -5,18 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 15:06:15 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/31 14:30:18 by hmoubal          ###   ########.fr       */
+/*   Created: 2022/07/31 16:43:31 by hmoubal           #+#    #+#             */
+/*   Updated: 2022/07/31 18:11:31 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include "Array.hpp"
 
 int main(void)
 {
-	int tab[] = {0,1,2,3,4};
-	Awesome tab2[5];
-	iter(tab, 5, print);
-	iter(tab2, 5, print);
-	return (0);
+	Array<int> arr(5);
+	// for(int i = 0; i < 5; i++)
+	// {
+	// 	arr[i] = i;
+	// }
+	Array<int> arr2(arr);
+	try
+	{
+		std::cout << arr2[1] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 }
