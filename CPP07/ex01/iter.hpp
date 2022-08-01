@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:06:30 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/07/31 15:12:23 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/01 12:46:25 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void iter(T *array, int len, void (*ptr) (T const &))
 {
 	for (int i = 0; i < len; i++)
 	{
-		(*ptr) ((array[i]));
+		(*ptr) (array[i]);
 	}
 }
 #endif
