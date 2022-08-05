@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 13:21:25 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/04 18:39:45 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/05 16:16:25 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 #include <iostream>
 #include <exception>
 #include <vector>
+#include <stdlib.h>
+#include <iterator>
 
+typedef std::vector<int>::iterator iter;
 class Span
 {
 	private:
@@ -29,6 +32,7 @@ class Span
 		void	addNumber(int value);
 		int	shortestSpan();
 		int	longestSpan();
+		void	fill_range(iter it_first, iter it_last);
 		~Span();
 
 		class ContainerIsFullException : public std::exception
@@ -45,6 +49,22 @@ class Span
 			const char *what() const throw()
 			{
 				return ("No Span Can Be Found");
+			}
+		};
+		class SizeBiggerException : public std::exception
+		{
+			public:
+			const char *what() const throw()
+			{
+				return ("size must be bigger than 0");
+			}
+		};
+		class SizeTooBigException : public std::exception
+		{
+			public:
+			const char *what() const throw()
+			{
+				return ("Size Too Big");
 			}
 		};
 };
