@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 13:21:25 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/05 16:16:25 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/05 20:56:02 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <iostream>
 #include <exception>
 #include <vector>
-#include <stdlib.h>
 #include <iterator>
 
 typedef std::vector<int>::iterator iter;
