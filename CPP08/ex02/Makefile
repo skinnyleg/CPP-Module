@@ -4,7 +4,6 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 CFILES = main.cpp\
-		Span.cpp\
 
 
 OFILES = $(addprefix $(OBJ_DIR)/,$(CFILES:.cpp=.o))

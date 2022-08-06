@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:29:55 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/05 20:56:49 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/06 16:12:23 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,18 @@
 #include <exception>
 #include <vector>
 #include <stack>
-#include <iterator>
 
-
-class MutantStack : public std::stack
+template <typename T>
+class MutantStack : public std::stack<T>
 {
+	private:
+		std::stack<T> stack;
 	public:
-		MutantStack(/* args */);
-		~MutantStack();
+		// typedef MutantStack<T>::iterator iterator;
+		MutantStack() {};
+		MutantStack(const MutantStack& obj) {*this = obj;};
+		MutantStack& operator=(const MutantStack& obj) {this->stack = obj.stack;};
+		~MutantStack() {};
 };
 
 
