@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 10:59:16 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/06 11:27:59 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/07 16:31:00 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ int main()
 	mstack.push(0);
 	std::cout << mstack.top() << std::endl;
 	std::cout << mstack.size() << std::endl;
-	// MutantStack<int>::iterator it = mstack.begin();
-	// MutantStack<int>::iterator ite = mstack.end();
-	// ++it;
-	// --it;
-	// while (it != ite)
-	// {
-	// 	std::cout << *it << std::endl;
-	// 	++it;
-	// }
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
+	++it;
+	--it;
+	while (it != ite)
+	{
+		std::cout << "stack values == " << *it << std::endl;
+		++it;
+	}
 	std::stack<int> s(mstack);
 	std::cout << mstack.top() << std::endl;
 	std::cout << mstack.size() << std::endl;

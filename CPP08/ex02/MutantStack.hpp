@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:29:55 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/06 16:12:23 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/07 16:30:38 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 #include <iostream>
 #include <exception>
-#include <vector>
+#include <deque>
 #include <stack>
 
 template <typename T>
 class MutantStack : public std::stack<T>
 {
-	private:
-		std::stack<T> stack;
 	public:
-		// typedef MutantStack<T>::iterator iterator;
-		MutantStack() {};
-		MutantStack(const MutantStack& obj) {*this = obj;};
-		MutantStack& operator=(const MutantStack& obj) {this->stack = obj.stack;};
+		MutantStack() :MutantStack<T>::stack() {};
+		MutantStack(const MutantStack& obj) : MutantStack<T>::stack(obj) {};
+		MutantStack& operator=(const MutantStack& obj) {MutantStack<T>::stack::operator=(obj); return (*this);};
+		typedef typename MutantStack<T>::stack::container_type::iterator iterator;
+		iterator	begin() {return (this->c.begin());}
+		iterator	end() {return (this->c.end());}
 		~MutantStack() {};
 };
 
