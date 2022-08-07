@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 10:59:16 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/07 16:31:00 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/07 16:31:59 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
 	mstack.push(0);
 	std::cout << mstack.top() << std::endl;
 	std::cout << mstack.size() << std::endl;
