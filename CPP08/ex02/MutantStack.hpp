@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 16:29:55 by hmoubal           #+#    #+#             */
-/*   Updated: 2022/08/07 16:30:38 by hmoubal          ###   ########.fr       */
+/*   Updated: 2022/08/08 11:29:51 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <exception>
 #include <deque>
+#include <list>
 #include <stack>
 
 template <typename T>
