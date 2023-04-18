@@ -14,11 +14,11 @@ SRC_DIR = .
 
 INC = *.hpp
 
-NAME = MutantStack
+NAME =  PmergeMe
 
 $(NAME) : $(OBJ_DIR) $(OFILES)
 	@$(CC) $(OFILES) -o $(NAME)
-	@echo "done for MutantStack"
+	@echo "done for  PmergeMe"
 
 $(OBJ_DIR):
 	@mkdir OBJ
