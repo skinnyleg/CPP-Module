@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:34:16 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/20 01:50:43 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/04/20 02:01:36 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ void check_date(std::string date, std::string line)
 void BitcoinExchange::searchInData(std::string date, double val)
 {
     iter it = data.lower_bound(date);
+    if (it == data.end())
+        it--;
     std::cout << date << " => " << val << " = " << val * it->second << std::endl;
 }
 
