@@ -1,7 +1,7 @@
 
 CC = c++
 
-CFLAGS = -Wall -Werror -Wextra #-g -fsanitize=address,undefined#,integer -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98
 
 CFILES = main.cpp\
 		 PmergeMe.cpp\

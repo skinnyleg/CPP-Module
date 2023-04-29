@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:54:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/29 18:20:12 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/04/29 23:29:09 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,45 +125,105 @@ void checkSorted(Vector vec)
     {
         if (vec[i] > vec[i + 1])
         {
-            std::cout << "not sorted correctly" << std::endl;
+            std::cout << "vector not sorted correctly" << std::endl;
             return ;
         }
     }
-    std::cout << "sorted correctly" << std::endl;
+    std::cout << "vector sorted correctly" << std::endl;
 }
 
 void PmergeMe::sortVector()
 {
     this->vec = MergeSortVector(this->vec);
-    PrintVector();
+    // PrintVector();
     checkSorted(this->vec);
 }
 
-void PmergeMe::InsertSortDeque()
+void PmergeMe::InsertSortDeque(Deque &arr)
 {
     int j = 0;
-    for (size_t i = 1; i < deq.size(); i++)
+    for (size_t i = 1; i < arr.size(); i++)
     {
         j = i;
-        while (j > 0 && deq[j - 1] > deq[j])
+        while (j > 0 && arr[j - 1] > arr[j])
         {
-            size_t tmp = deq[j];
-            deq[j] = deq[j - 1];
-            deq[j - 1] = tmp;
+            size_t tmp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = tmp;
             j--;
         }
     }
 }
 
-void PmergeMe::MergeSortDeque()
+Deque MergeDeque(Deque arr1, Deque arr2)
 {
+    Deque ret;
+    
+    while (!arr1.empty() && !arr2.empty())
+    {
+        if (arr1[0] > arr2[0])
+        {
+            ret.push_back(arr2[0]);
+            arr2.erase(arr2.begin());
+        }
+        else
+        {
+            ret.push_back(arr1[0]);
+            arr1.erase(arr1.begin());
+        }
+    }
 
+    while (!arr1.empty())
+    {
+        ret.push_back(arr1[0]);
+        arr1.erase(arr1.begin());
+    }
+    
+    while (!arr2.empty())
+    {
+        ret.push_back(arr2[0]);
+        arr2.erase(arr2.begin());
+    }
+
+    return (ret);
+}
+
+Deque PmergeMe::MergeSortDeque(Deque arr)
+{
+    if (arr.size() <= 20)
+    {
+        InsertSortDeque(arr);
+        return (arr);
+    }
+    Deque arr1;
+    Deque arr2;
+    arr1.insert(arr1.begin(), arr.begin() , arr.begin() + (arr.size() / 2));
+    arr2.insert(arr2.begin(), arr.begin() + (arr.size() / 2) , arr.end());
+
+    arr1 = MergeSortDeque(arr1);
+    arr2 = MergeSortDeque(arr2);
+    return (MergeDeque(arr1, arr2));
+
+}
+
+void checkSorted(Deque vec)
+{
+    for (size_t i = 0; i < vec.size() - 1; i++)
+    {
+        if (vec[i] > vec[i + 1])
+        {
+            std::cout << "deque not sorted correctly" << std::endl;
+            return ;
+        }
+    }
+    std::cout << "deque sorted correctly" << std::endl;
 }
 
 void PmergeMe::sortDeque()
 {
-    InsertSortDeque();
-    PrintDeque();
+    this->deq = MergeSortDeque(this->deq);
+	// PrintDeque();
+    checkSorted(this->deq);
 }
 
         
@@ -172,7 +232,7 @@ PmergeMe::PmergeMe(char **av, int ac)
     parseNumbers(av, ac);
     fillContainers(av, ac);
     sortVector();
-    // sortDeque();
+    sortDeque();
 }
 
 PmergeMe::~PmergeMe()

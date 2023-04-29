@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:54:42 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/29 18:16:41 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/04/29 23:24:15 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class PmergeMe
 		Deque deq;
 		void parseNumbers(char **av, int ac);
 		void fillContainers(char **av, int ac);
+
+
 		void sortVector();
 		void InsertSortVector(Vector &arr);
 		Vector MergeSortVector(Vector arr);
@@ -36,8 +38,8 @@ class PmergeMe
 
 		
 		void sortDeque();
-		void InsertSortDeque();
-		void MergeSortDeque();
+		void InsertSortDeque(Deque &arr);
+		Deque MergeSortDeque(Deque arr);
 		void PrintDeque();
 		PmergeMe(char **av, int ac);
 		~PmergeMe();
