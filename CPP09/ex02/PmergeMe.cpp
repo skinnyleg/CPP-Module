@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:54:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/29 23:29:09 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/04/30 22:18:57 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void PmergeMe::fillContainers(char **av, int ac)
         numstr.assign(av[i]);
         value = stoul(numstr);
         vec.push_back(value);
+        unsorted.push_back(value);
         deq.push_back(value);
         i++;
     }
@@ -134,9 +135,11 @@ void checkSorted(Vector vec)
 
 void PmergeMe::sortVector()
 {
+	tVec = clock();
     this->vec = MergeSortVector(this->vec);
+	tVec = clock() - tVec;
     // PrintVector();
-    checkSorted(this->vec);
+    // checkSorted(this->vec);
 }
 
 void PmergeMe::InsertSortDeque(Deque &arr)
@@ -221,11 +224,28 @@ void checkSorted(Deque vec)
 
 void PmergeMe::sortDeque()
 {
+	tDeq = clock();
     this->deq = MergeSortDeque(this->deq);
+	tDeq = clock() - tDeq;
 	// PrintDeque();
-    checkSorted(this->deq);
+    // checkSorted(this->deq);
 }
 
+void PmergeMe::PrintOutput()
+{
+	std::cout << "Before: ";
+	for (size_t i = 0; i < unsorted.size(); i++)
+		std::cout << unsorted[i] << " ";
+	std::cout << std::endl;
+	std::cout << "After:  ";
+	for (size_t i = 0; i < vec.size(); i++)
+		std::cout << vec[i] << " ";
+	std::cout << std::endl;
+	double timeVec = ((float)tVec / CLOCKS_PER_SEC) * 1000000;
+	double timeDeq = ((float)tDeq / CLOCKS_PER_SEC) * 1000000;
+	std::cout << "Time to process a range of  " << vec.size() << " elements with std::vector :  "  << timeVec << " us"<< std::endl;
+	std::cout << "Time to process a range of  " << deq.size() << " elements with std::deque  :  " << timeDeq << " us" << std::endl;
+}
         
 PmergeMe::PmergeMe(char **av, int ac)
 {
@@ -233,6 +253,7 @@ PmergeMe::PmergeMe(char **av, int ac)
     fillContainers(av, ac);
     sortVector();
     sortDeque();
+	PrintOutput();
 }
 
 PmergeMe::~PmergeMe()

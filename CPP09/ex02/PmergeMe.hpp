@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:54:42 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/29 23:24:15 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/04/30 22:11:39 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
+#include <ctime>
 
 
 typedef std::vector<size_t> Vector;
@@ -26,7 +27,10 @@ class PmergeMe
 {
 	public:
 		Vector vec;
+		clock_t tVec;
 		Deque deq;
+		clock_t tDeq;
+		Vector unsorted;
 		void parseNumbers(char **av, int ac);
 		void fillContainers(char **av, int ac);
 
@@ -41,6 +45,8 @@ class PmergeMe
 		void InsertSortDeque(Deque &arr);
 		Deque MergeSortDeque(Deque arr);
 		void PrintDeque();
+
+		void PrintOutput();
 		PmergeMe(char **av, int ac);
 		~PmergeMe();
 };
