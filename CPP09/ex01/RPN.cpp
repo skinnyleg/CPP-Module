@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:52:53 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/23 23:37:39 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/05/01 16:41:16 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,47 +29,52 @@ void RPN::calculResult(std::string option)
 		res = op1 - op2;
 	else if (!option.compare("/"))
 		res = op1 / op2;
-	std::cout << "op1 = " << op1 << std::endl;
-	std::cout << "operator = " << option << std::endl;
-	std::cout << "op2 = " << op2 << std::endl;
-	std::cout << "res = " << res << std::endl;
-	std::cout << std::endl;
 	opStack.push(res);
 }
-void RPN::parse_option(std::string option)
 
+int RPN::checkSign(std::string option)
 {
-	if (option.size() != 1)
-		throw(std::runtime_error("Error"));
-	if (option.compare("+") && option.compare("-") && option.compare("/") && option.compare("*"))
+	for (size_t i = 0; i < option.size() - 1; i++)
 	{
-		if (!std::isdigit(option[0]))
-			throw(std::runtime_error("Error"));
-		else
-			opStack.push(std::stoi(option));
+		if (std::isdigit(option[i]) && std::isdigit(option[i + 1]))
+			return (-1);
 	}
-	else
-		calculResult(option);
+	return (0);
+}
+
+void RPN::parse_option(std::string option)
+{
+	std::string op;
+	if (option.size() != 1 && checkSign(option) == -1)
+		throw(std::runtime_error("Error"));
+	for (size_t i = 0; i < option.size(); i++)
+	{
+		op += option[i];
+		if (op[0] != '\t' && op[0] != ' ')
+		{
+			if (op.compare("+") && op.compare("-") && op.compare("/") && op.compare("*"))
+			{
+				if (!std::isdigit(op[0]))
+					throw(std::runtime_error("Error"));
+				else
+					opStack.push(std::stoi(op));
+			}
+			else
+				calculResult(op);
+		}	
+		op.clear();
+	}
 }
 
 RPN::RPN(char *av)
 {
 	std::string str(av);
-	int i = 0;
-	
-	while (!str.empty())
-	{
-		while (str[i] == ' ')
-			i++;
-		str.erase(0, i);
-		if (str.empty())
-			break;
-		std::string option = str.substr(0, str.find(' '));
-		parse_option(option);
-		str.erase(0, str.find(' '));
-		i = 0;
-	}
-	std::cout << (int)opStack.top() << std::endl;
+
+	parse_option(str);
+	if (opStack.size() == 1)
+		std::cout << opStack.top() << std::endl;
+	else
+		throw(std::runtime_error("Error"));
 }
 
 RPN::~RPN()

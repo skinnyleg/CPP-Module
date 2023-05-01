@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:33:48 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/20 01:49:47 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/05/01 15:16:33 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int ac, char **av)
     try
     {
         if (ac != 2)
-            throw (std::runtime_error("Error: could not open file."));
+            throw (std::runtime_error("Wrong Number Of Arguments"));
         BitcoinExchange obj;
         obj.procces_data(av[1]);
     }

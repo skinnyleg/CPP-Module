@@ -19,7 +19,7 @@ NAME =  PmergeMe
 
 $(NAME) : $(OBJ_DIR) $(OFILES)
 	@$(CC) $(OFILES) -o $(NAME)
-	@echo "done for  PmergeMe"
+	@echo "done for PmergeMe"
 
 $(OBJ_DIR):
 	@mkdir OBJ

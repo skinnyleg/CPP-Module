@@ -6,7 +6,7 @@
 /*   By: hmoubal <hmoubal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 12:54:46 by hmoubal           #+#    #+#             */
-/*   Updated: 2023/04/30 22:18:57 by hmoubal          ###   ########.fr       */
+/*   Updated: 2023/05/01 15:18:22 by hmoubal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,8 +138,6 @@ void PmergeMe::sortVector()
 	tVec = clock();
     this->vec = MergeSortVector(this->vec);
 	tVec = clock() - tVec;
-    // PrintVector();
-    // checkSorted(this->vec);
 }
 
 void PmergeMe::InsertSortDeque(Deque &arr)
@@ -227,8 +225,6 @@ void PmergeMe::sortDeque()
 	tDeq = clock();
     this->deq = MergeSortDeque(this->deq);
 	tDeq = clock() - tDeq;
-	// PrintDeque();
-    // checkSorted(this->deq);
 }
 
 void PmergeMe::PrintOutput()
