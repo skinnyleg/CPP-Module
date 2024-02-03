@@ -21,7 +21,7 @@ void	fill_file(std::ofstream &RepFile, std::ifstream &OriginFile, char **av)
 	while (std::getline(OriginFile, line))
 	{
 		int found = 0;
-		if (rep.compare("") != true)
+		if (rep.compare("") != 0)
 		{
 			while (line.find(av[2], 0) != std::string::npos)
 			{
@@ -29,8 +29,7 @@ void	fill_file(std::ofstream &RepFile, std::ifstream &OriginFile, char **av)
 				send.assign(line, 0, found);
 				send.append(rep);
 				RepFile << send;
-				found += rep.length();
-				line.erase(0, found);
+				line.erase(0, found + 1);
 			}
 		}
 		if (line.empty() != true)
